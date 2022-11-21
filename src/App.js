@@ -1,24 +1,38 @@
-import logo from './logo.svg';
-import './App.css';
+import { useEffect, useState } from "react";
+import Chart from "./chart";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+  const [data, setdata] = useState([]);
+
+  useEffect(() => {
+    const fetchDatas = async () => {
+      const res = await fetch("https://api.coincap.io/v2/assets/?limit=20");
+      const data = await res.json();
+      console.log(data);
+      setdata(data?.data);
+    };
+    fetchDatas();
+  }, []);
+
+  
+  return (<>
+  
+  
+<div>How to use recharts</div>
+  
+  <Chart data={data} />
+  
+
+  <ol>
+
+    {
+      data.map(({id, name, priceUsd})=>(<li key={id}>{name} <p>Price{priceUsd}</p></li>))
+    }
+  </ol>
+
+ 
+  </>
+   
   );
 }
 
