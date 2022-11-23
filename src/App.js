@@ -14,11 +14,13 @@ function App() {
     fetchDatas();
   }, []);
 
+  console.log(data);
+
   
   return (<>
   
   
-<div>How to use recharts</div>
+<div>Criptocurrency prices</div>
   
   <Chart data={data} />
   
