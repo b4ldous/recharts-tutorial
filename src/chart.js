@@ -23,7 +23,7 @@ import {
         >
           <CartesianGrid strokeDasharray="3 3" />
           <XAxis dataKey="name" />
-          <YAxis />
+          <YAxis type="number" domain={[0, 20000]} />
           <Tooltip />
           <Legend />
           <Bar dataKey="name" fill="#ff6600" />
