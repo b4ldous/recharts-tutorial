@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import Chart from "./chart";
+import CryptoLineChart from "./CryptoLineChart";
 
 function App() {
   const [data, setdata] = useState([]);
@@ -31,6 +32,7 @@ function App() {
       data.map(({id, name, priceUsd})=>(<li key={id}>{name} <p>Price{priceUsd}</p></li>))
     }
   </ol>
+  <CryptoLineChart data={data}/>
 
  
   </>
