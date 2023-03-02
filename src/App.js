@@ -21,7 +21,7 @@ function App() {
   return (<>
   
   
-<div>Criptocurrency prices</div>
+<h2>Criptocurrency prices</h2>
   
   <Chart data={data} />
   
